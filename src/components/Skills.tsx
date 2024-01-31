@@ -4,10 +4,14 @@ import { Box, Typography, Grid, Paper, useTheme } from '@mui/material';
 import { motion } from 'framer-motion';
 import cvData from '@/content/CVData';
 
+type ColorMap = {
+    [key: string]: string;
+};
+
 const SkillsSection = () => {
     const theme = useTheme();
     // Using Material-UI theme colors for categories
-    const colorMap = {
+    const colorMap: ColorMap = {
         "Programming Languages": theme.palette.primary.main,
         "Software Development": theme.palette.primary.light,
         "Machine Learning Tools": theme.palette.secondary.main,
