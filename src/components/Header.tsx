@@ -6,7 +6,12 @@ import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import Link from '@mui/material/Link';
 
-const sections = [
+type Section = {
+    label: string;
+    id: string;
+};
+
+const sections: Section[] = [
     { label: 'Home', id: 'hero-section' },
     { label: 'About Me', id: 'about-me-section' },
     { label: 'Skills', id: 'skills-section' },
@@ -16,7 +21,7 @@ const sections = [
     { label: 'Hobbies', id: 'hobbies-section' }
 ]; // Define sections with labels and corresponding IDs
 
-function useScrollSpy(sections) {
+function useScrollSpy(sections: Section[]) {
     const [activeSection, setActiveSection] = React.useState(null);
 
     React.useEffect(() => {
@@ -31,6 +36,7 @@ function useScrollSpy(sections) {
                 return false;
             });
             if (selectedSection) {
+                // @ts-ignore
                 setActiveSection(selectedSection.id);
             }
         };
