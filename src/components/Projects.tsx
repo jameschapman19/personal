@@ -1,4 +1,3 @@
-"use client"
 import React from 'react';
 import { Project } from '@/interfaces/project';
 import { Grid, Card, CardContent, Typography, Box, Container, Link, Button } from '@mui/material';
@@ -16,7 +15,7 @@ const projects: Project[] = [
     // ... more projects
 ];
 
-const Portfolio = () => {
+const Projects = () => {
     return (
         <Box sx={{
             textAlign: 'center',
@@ -29,7 +28,14 @@ const Portfolio = () => {
             justifyContent: 'center', // Vertically center the content
         }}>
             <Container>
-                <Grid container spacing={2}>
+                <Typography variant="h2" component="h2" gutterBottom>
+                    <span style={{ fontSize: '0.8em' }}>Explore My</span> <br /> <strong style={{ fontSize: '1.5em' }}>Projects Portfolio</strong>
+                </Typography>
+                <Typography variant="body1">
+                    {/* eslint-disable-next-line react/no-unescaped-entities */}
+                    Check out some of the exciting projects I've worked on.
+                </Typography>
+                <Grid container spacing={2} sx={{ mt: 4 }}>
                     {projects.map((project, index) => (
                         <Grid item xs={12} sm={6} md={4} key={index}>
                             <motion.div
@@ -61,4 +67,4 @@ const Portfolio = () => {
     );
 };
 
-export default Portfolio;
+export default Projects;

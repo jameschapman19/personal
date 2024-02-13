@@ -1,6 +1,6 @@
 // components/PublicationsSection.tsx
 "use client";
-import {Box, Typography, Card, CardContent, Container, CardActions, Button, Grid, useTheme} from '@mui/material';
+import { Box, Typography, Card, CardContent, Container, CardActions, Button, Grid, useTheme } from '@mui/material';
 import { motion } from 'framer-motion';
 import publications from '@/content/publications.json'; // Path to your JSON file
 
@@ -33,10 +33,13 @@ const PublicationsSection = () => {
             justifyContent: 'center',
         }}>
             <Container>
-                <Typography variant="h3" component="h2" gutterBottom color={theme.palette.getContrastText(theme.palette.secondary.main)}>
-                    Publications
+                <Typography variant="h2" component="h2" gutterBottom color={theme.palette.getContrastText(theme.palette.secondary.main)}>
+                    <span style={{ fontSize: '0.8em' }}>Learn About My</span> <br /> <strong style={{ fontSize: '1.5em' }}>Publications</strong>
                 </Typography>
-                <Grid container spacing={4}>
+                <Typography variant="body1" color={theme.palette.getContrastText(theme.palette.secondary.main)}>
+                    Discover some of my recent research contributions and publications.
+                </Typography>
+                <Grid container spacing={4} sx={{ mt: 4 }}>
                     {publications.map((publication: Publication, index: number) => (
                         <Grid item key={index} xs={12} sm={6} md={4}>
                             <motion.div

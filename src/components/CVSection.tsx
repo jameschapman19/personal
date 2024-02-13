@@ -1,7 +1,7 @@
 // components/CVSection.tsx
 "use client"
 import React from 'react';
-import { Box, Typography, Card, CardContent, Container, Grid, Paper, useTheme, Link as MuiLink } from '@mui/material';
+import { Box, Typography, Button, Card, CardContent, Container, Grid, Paper, useTheme, Link as MuiLink } from '@mui/material';
 import { motion } from 'framer-motion';
 import { CVData } from '@/interfaces/CVData';
 
@@ -41,13 +41,13 @@ const CVSection: React.FC<CVSectionProps> = ({ cvData }) => {
             justifyContent: 'center', // Vertically center the content
         }}>
             <Container>
-            <Typography variant="h3" gutterBottom>CV</Typography>
-            {/* Personal Information */}
-            <Typography variant="body1"><strong>Email:</strong> {cvData.personalInfo.email} | <strong>Phone:</strong> {cvData.personalInfo.phone}</Typography>
+            <Typography variant="h2" gutterBottom><strong>CV</strong></Typography>
+                <Button variant="contained" color="primary" href="/CV.pdf" download sx={{ mt: 4, fontSize: '1.2rem', padding: '12px 24px', fontWeight: 'bold' }}>Download CV as PDF</Button>
+                {/* Add vertical padding before the email */}
+                <Typography variant="body1" sx={{ mt: 2 }}><strong>Email:</strong> {cvData.personalInfo.email} | <strong>Phone:</strong> {cvData.personalInfo.phone}</Typography>
             <MuiLink href={cvData.personalInfo.github} target="_blank" rel="noopener noreferrer"><strong>GitHub</strong></MuiLink>
             {' | '}
             <MuiLink href={cvData.personalInfo.linkedin} target="_blank" rel="noopener noreferrer"><strong>LinkedIn</strong></MuiLink>
-
             <Grid container spacing={4} sx={{ mt: 4 }}>
                 {/* Skills */}
                 <Grid item xs={12} md={6}>

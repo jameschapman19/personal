@@ -1,8 +1,7 @@
-// components/SkillsSection.tsx
-"use client"
 import { Box, Typography, Grid, Paper, useTheme } from '@mui/material';
 import { motion } from 'framer-motion';
 import cvData from '@/content/CVData';
+import { Card, CardContent, Container} from '@mui/material';
 
 type ColorMap = {
     [key: string]: string;
@@ -19,38 +18,61 @@ const SkillsSection = () => {
         // Add more categories and colors as needed
     };
 
-    const itemVariants = {
-        hover: { scale: 1.1 }
+    const cardVariants = {
+        initial: { opacity: 0, y: 50 },
+        animate: { opacity: 1, y: 0 },
+        whileHover: { scale: 1.05 }
+    };
+
+    const getCardStyles = (category: string) => ({
+        backgroundColor: colorMap[category] || theme.palette.primary.main,
+        color: theme.palette.getContrastText(colorMap[category] || theme.palette.primary.main),
+    });
+
+    const paperStyle = {
+        padding: '1rem',
+        margin: '0.5rem 0',
+        backgroundColor: theme.palette.background.paper,
     };
 
     return (
-        <Box sx={{ textAlign: 'center', padding: '4rem 1rem' }}>
-            <Typography variant="h3" component="h2" gutterBottom>
-                My Skills
+        <Box sx={{
+            textAlign: 'center',
+            pt: 8, // Increase top padding
+            pb: 8, // Increase bottom padding
+            minHeight: '100vh', // Set minimum height to 100% of the viewport height
+            backgroundColor: 'white', // White background color
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center', // Vertically center the content
+        }}>
+            <Container>
+            <Typography variant="h2" component="h2" gutterBottom>
+                <span style={{ fontSize: '0.8em' }}>My</span> <br /> <strong style={{ fontSize: '1.5em' }}>Skills</strong>
             </Typography>
+            <Typography variant="body1">
+                {/* Your tagline goes here */}
+                {/* Example: "Discover a world of expertise and innovation" */}
+            </Typography>
+                <Grid container spacing={4} sx={{ mt: 4 }}>
             {cvData.skills.map((category) => (
-                <Box key={category.category}>
-                    <Typography variant="h5" sx={{ color: colorMap[category.category] || 'text.primary' }}>
-                        {category.category}
-                    </Typography>
-                    <Grid container spacing={2}>
-                        {category.details.map(skill => (
-                            <Grid item xs={12} sm={6} md={3} key={skill}>
-                                <motion.div variants={itemVariants} whileHover="hover">
-                                    <Paper elevation={3} sx={{
-                                        padding: '1rem',
-                                        textAlign: 'center',
-                                        backgroundColor: colorMap[category.category],
-                                        color: theme.palette.getContrastText(colorMap[category.category])
-                                    }}>
-                                        <Typography variant="h6">{skill}</Typography>
+                <Grid item xs={12} md={3} key={category.category}>
+                    <motion.div variants={cardVariants} initial="initial" animate="animate" whileHover="whileHover">
+                        <Card sx={getCardStyles(category.category)}>
+                            <CardContent>
+                                <Typography variant="h6">{category.category}</Typography>
+                                {category.details.map((skill, index) => (
+                                    <Paper key={index} sx={paperStyle}>
+                                        <Typography>{skill}</Typography>
                                     </Paper>
-                                </motion.div>
-                            </Grid>
-                        ))}
-                    </Grid>
-                </Box>
+                                ))}
+                            </CardContent>
+                        </Card>
+                    </motion.div>
+                </Grid>
             ))}
+        </Grid>
+            </Container>
         </Box>
     );
 };

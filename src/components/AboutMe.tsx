@@ -1,7 +1,7 @@
 // components/AboutMeSection.tsx
 "use client"
 import React from 'react';
-import {Box, Typography, Container, Grid, useTheme} from '@mui/material';
+import { Box, Typography, Container, Grid, useTheme } from '@mui/material';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
@@ -28,41 +28,37 @@ const AboutMeSection = () => {
                 backgroundColor: theme.palette.primary.main, // Background color for the entire section
             }}>
                 <Container>
-                    <Grid container spacing={2} alignItems="center">
-                        <Grid item md={6}>
+                    <Grid container spacing={2} alignItems="center" justifyContent={{ xs: 'center', md: 'initial' }}>
+                        <Grid item xs={12} md={6} sx={{ textAlign: { xs: 'center', md: 'left' } }}>
                             <Image
-                                src="/professional.jpg"
+                                src="/travel.jpg"
                                 alt="James Chapman"
-                                sizes="70vw"
+                                sizes="100vw"
                                 style={{
-                                    width: '80%',
+                                    width: '100%',
                                     height: 'auto',
-                                    borderRadius: '10px'
+                                    borderRadius: '10px',
+                                    maxWidth: '250px' // Ensure the image is not too large on big screens
                                 }}
-                                width={500}
-                                height={300}
+                                layout="responsive" // This ensures that the image resizes responsively
+                                width={125}
+                                height={75}
                             />
                         </Grid>
-                        <Grid item md={6}>
-                            <Typography variant="h3" component="h2" gutterBottom color={theme.palette.getContrastText(theme.palette.primary.main)}>
-                                About Me
+                        <Grid item xs={12} md={6} sx={{ textAlign: { xs: 'center', md: 'right' } }}>
+                            <Typography variant="h2" component="h2" gutterBottom color={theme.palette.getContrastText(theme.palette.primary.main)}>
+                                <span style={{ fontSize: '0.8em' }}>About</span> <br /> <strong style={{ fontSize: '1.5em' }}>Me</strong> <br /> <span style={{ fontSize: '0.8em' }}>AI Enthusiast & Innovator</span>
                             </Typography>
                             <Typography variant="body1" color={theme.palette.getContrastText(theme.palette.primary.main)}>
                                 {/* eslint-disable-next-line react/no-unescaped-entities */}
-                                Hello! I'm James Chapman, and I have a strong academic background in Engineering, Economics, and Management from the University of Oxford. With a 1st Class MEng degree, my journey in academia ignited a passion for technology and its endless possibilities.
+                                Hi there! I'm James Chapman, an AI enthusiast with a passion for innovation and problem-solving. With a background in Engineering and Economics, I blend creativity with analytical thinking to tackle complex challenges in the field of artificial intelligence.
                                 {/* eslint-disable-next-line react/no-unescaped-entities */}
-                                As a Machine Learning enthusiast, I've honed my skills and expertise in areas like Deep Learning, Natural Language Processing, and Computer Vision. I'm well-versed in popular tools and frameworks, including TensorFlow, PyTorch, and Scikit-Learn, and have a solid foundation in programming languages such as Python, R, and MATLAB.
+                                I specialize in areas like Deep Learning, Natural Language Processing, and Computer Vision, leveraging cutting-edge technologies to drive impactful solutions. Whether it's developing efficient algorithms or pioneering self-supervised learning techniques, I'm dedicated to pushing the boundaries of AI.
                                 {/* eslint-disable-next-line react/no-unescaped-entities */}
-                                Beyond academics, I've had the privilege of working on impactful projects, including developing efficient algorithms for classical ML problems, presented at ICLR 2024. I've also innovated self-supervised representation learning techniques, contributing to the future of GPU-optimized computer vision applications.
+                                From academia to industry, I've collaborated on diverse projects, contributing to advancements in machine learning and beyond. I thrive in dynamic environments, where I can apply my expertise to drive innovation and make a positive impact.
                                 {/* eslint-disable-next-line react/no-unescaped-entities */}
-                                In my professional journey, I've served as an Assistant Lecturer and Teaching Assistant at University College London, where I've shared my knowledge with students and designed coursework on Foundations of AI. I've also ventured into the world of finance, working as an Analyst on the Systematic Investment Research Team at M&G.
-                                {/* eslint-disable-next-line react/no-unescaped-entities */}
-                                When I'm not immersed in technology and academia, I find solace in rowing with Vesta Rowing Club, cheering for Reading FC, and keeping up with the fast-paced world of Formula 1.
-                                {/* eslint-disable-next-line react/no-unescaped-entities */}
-                                I'm dedicated to continuous learning, innovation, and making a positive impact in the field of technology and beyond.
-                                {/* Continue adding your story here */}
+                                Let's connect and explore how we can leverage AI to transform ideas into reality.
                             </Typography>
-                            {/* Add more content about hobbies or fun facts */}
                         </Grid>
                     </Grid>
                 </Container>
