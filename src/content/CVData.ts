@@ -13,19 +13,48 @@ const cvData: CVData = {
     skills: [
         {
             category: "Programming Languages",
-            details: ["Python (6 years)", "R (2 years)", "MATLAB (2 years)", "Bash (4 years)", "SQL (2 years)", "Javascript (beginner)"]
+            details: [
+                { name: "Python (6 years)", logo: "/logos/python.svg" },
+                { name: "R (2 years)", logo: "/logos/R.svg" },
+                { name: "MATLAB (2 years)", logo: "/logos/matlab.svg" },
+                { name: "Bash (4 years)", logo: "/logos/bash.svg" },
+                { name: "SQL (2 years)", logo: "/logos/sql.svg" },
+                { name: "Javascript (1 year)", logo: "/logos/javascript.svg" },
+                { name: "Typescript (1 year)", logo: "/logos/typescript.svg" }
+            ]
         },
         {
             category: "Software Development",
-            details: ["Git", "CI/CD (CircleCI, GitHub Actions)", "Unit Testing (Pytest)", "Documentation (Sphinx)"]
+            details: [
+                { name: "Git (GitHub)", logo: "/logos/github.svg" },
+                { name: "CI/CD (CircleCI)", logo: "/logos/circleci.svg" },
+                { name: "Unit Testing (Pytest)", logo: "/logos/pytest.svg" },
+                { name: "Documentation (Sphinx)", logo: "/logos/sphinxdoc.webp" }
+            ]
         },
         {
             category: "Machine Learning Tools",
-            details: ["TensorFlow", "PyTorch", "Lightning", "Scikit-Learn", "Pandas", "NumPy", "SciPy", "Jax", "HuggingFace"]
+            details: [
+                { name: "TensorFlow", logo: "/logos/tensorflow.svg" },
+                { name: "PyTorch", logo: "/logos/pytorch.svg" },
+                { name: "Lightning", logo: "/logos/lightning.svg" },
+                { name: "Scikit-Learn", logo: "/logos/scikit-learn.png" },
+                { name: "Pandas", logo: "/logos/pandas.jpg" },
+                { name: "NumPy", logo: "/logos/numpy.svg" },
+                { name: "SciPy", logo: "/logos/scipy.jpg" },
+                { name: "Jax", logo: "/logos/jax.jpg" },
+                { name: "HuggingFace", logo: "/logos/huggingface.svg" }
+            ]
         },
         {
             category: "Machine Learning Techniques",
-            details: ["Deep Learning", "NLP", "Computer Vision", "Self-Supervised Learning", "Reinforcement Learning"]
+            details: [
+                { name: "Deep Learning" }, // Assuming no logos for these techniques
+                { name: "NLP" },
+                { name: "Computer Vision" },
+                { name: "Self-Supervised Learning" },
+                { name: "Reinforcement Learning" }
+            ]
         },
     ],
     education: [

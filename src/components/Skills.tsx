@@ -1,14 +1,26 @@
-import { Box, Typography, Grid, Paper, useTheme } from '@mui/material';
-import { motion } from 'framer-motion';
+import { Box, Typography, Container, Grid, Paper, useTheme } from '@mui/material';
 import cvData from '@/content/CVData';
-import { Card, CardContent, Container} from '@mui/material';
-
+import {
+    Accordion,
+    AccordionDetails,
+    AccordionSummary,
+} from '@mui/material';
+import { motion } from 'framer-motion';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import Image from 'next/image';
 type ColorMap = {
     [key: string]: string;
 };
 
 const SkillsSection = () => {
     const theme = useTheme();
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: { delay: 0.5, duration: 1 }
+        }
+    };
     // Using Material-UI theme colors for categories
     const colorMap: ColorMap = {
         "Programming Languages": theme.palette.primary.main,
@@ -18,62 +30,76 @@ const SkillsSection = () => {
         // Add more categories and colors as needed
     };
 
-    const cardVariants = {
-        initial: { opacity: 0, y: 50 },
-        animate: { opacity: 1, y: 0 },
-        whileHover: { scale: 1.05 }
-    };
-
     const getCardStyles = (category: string) => ({
         backgroundColor: colorMap[category] || theme.palette.primary.main,
         color: theme.palette.getContrastText(colorMap[category] || theme.palette.primary.main),
     });
 
-    const paperStyle = {
-        padding: '1rem',
-        margin: '0.5rem 0',
-        backgroundColor: theme.palette.background.paper,
-    };
-
     return (
-        <Box sx={{
-            textAlign: 'center',
-            pt: 8, // Increase top padding
-            pb: 8, // Increase bottom padding
-            minHeight: '100vh', // Set minimum height to 100% of the viewport height
-            backgroundColor: 'white', // White background color
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center', // Vertically center the content
-        }}>
+        <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+        >
+            <Box sx={{
+                display: "flex",
+                minHeight: "100vh", // Set a minimum height for the section
+                textAlign: 'left',
+                pt: 8,
+                pb: 8,
+            }}>
             <Container>
-            <Typography variant="h2" component="h2" gutterBottom>
-                <span style={{ fontSize: '0.8em' }}>My</span> <br /> <strong style={{ fontSize: '1.5em' }}>Skills</strong>
-            </Typography>
-            <Typography variant="body1">
-                {/* Your tagline goes here */}
-                {/* Example: "Discover a world of expertise and innovation" */}
-            </Typography>
-                <Grid container spacing={4} sx={{ mt: 4 }}>
-            {cvData.skills.map((category) => (
-                <Grid item xs={12} md={3} key={category.category}>
-                    <motion.div variants={cardVariants} initial="initial" animate="animate" whileHover="whileHover">
-                        <Card sx={getCardStyles(category.category)}>
-                            <CardContent>
-                                <Typography variant="h6">{category.category}</Typography>
-                                {category.details.map((skill, index) => (
-                                    <Paper key={index} sx={paperStyle}>
-                                        <Typography>{skill}</Typography>
-                                    </Paper>
-                                ))}
-                            </CardContent>
-                        </Card>
-                    </motion.div>
+                <Grid container spacing={4} sx={{ justifyContent: 'space-between' }}>
+                    <Grid item xs={12} md={6}>
+                        <Typography variant="h2" component="h2" gutterBottom>
+                            <span style={{ fontSize: '0.8em' }}>My</span> <br /> <strong style={{ fontSize: '1.5em' }}>Skills</strong>
+                        </Typography>
+                        <Typography variant="body1">
+                            {/* Your tagline goes here */}
+                            {/* Example: "Discover a world of expertise and innovation" */}
+                        </Typography>
+                    </Grid>
+                    <Grid item xs={12} md={6}>
+                        <Grid container spacing={4}>
+                            {cvData.skills.map((category) => (
+                                <Grid item xs={12} key={category.category}>
+                                    <Accordion sx={getCardStyles(category.category)}>
+                                        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                                            <Typography variant="h6">{category.category}</Typography>
+                                        </AccordionSummary>
+                                        <AccordionDetails>
+                                            <Grid container spacing={2}>
+                                                {category.details.map((skill, index) => (
+                                                    <Grid item xs={6} md={4} key={index}>
+                                                        <Paper sx={{ padding: '1rem', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                                                            {skill.logo ? (
+                                                                <Image
+                                                                    src={skill.logo}
+                                                                    alt={`${skill.name} logo`}
+                                                                    width={60} // Specify width
+                                                                    height={60} // Specify height
+                                                                    objectFit="contain"
+                                                                />
+                                                            ) : (
+                                                                <div style={{ width: '60px', height: '60px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.25rem' }}>
+                                                                    {skill.name[0]}
+                                                                </div> // A placeholder div for skills without a logo
+                                                            )}
+                                                            <Typography variant="body2">{skill.name}</Typography>
+                                                        </Paper>
+                                                    </Grid>
+                                                    ))}
+                                            </Grid>
+                                        </AccordionDetails>
+                                    </Accordion>
+                                </Grid>
+                            ))}
+                        </Grid>
+                    </Grid>
                 </Grid>
-            ))}
-        </Grid>
             </Container>
-        </Box>
+            </Box>
+        </motion.div>
     );
 };
 

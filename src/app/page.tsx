@@ -18,20 +18,23 @@ const Home = () => {
             <section id="about-me-section">
             <AboutMeSection />
             </section>
+                <section id="projects-section">
+                        <Projects/>
+                </section>
+                <section id="publications-section">
+                        <PublicationsSection />
+                </section>
             <section id="skills-section">
             <SkillsSection />
             </section>
-            <section id="projects-section">
-            <Projects/>
-            </section>
-            <section id="publications-section">
-            <PublicationsSection />
-            </section>
+            {/*<section id="carousel-section">*/}
+            {/*<LogoCarousel/>*/}
+            {/*</section>*/}
+                <section id="hobbies-section">
+                        <HobbiesSection />
+                </section>
             <section id="cv-section">
             <CVSection cvData={cvData} />
-            </section>
-            <section id="hobbies-section">
-            <HobbiesSection />
             </section>
         </>
     );

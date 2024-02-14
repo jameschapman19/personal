@@ -14,11 +14,11 @@ type Section = {
 const sections: Section[] = [
     { label: 'Home', id: 'hero-section' },
     { label: 'About Me', id: 'about-me-section' },
-    { label: 'Skills', id: 'skills-section' },
     { label: 'Projects', id: 'projects-section' },
     { label: 'Publications', id: 'publications-section' },
+    { label: 'Skills', id: 'skills-section' },
+    { label: 'Hobbies', id: 'hobbies-section' },
     { label: 'CV', id: 'cv-section' },
-    { label: 'Hobbies', id: 'hobbies-section' }
 ]; // Define sections with labels and corresponding IDs
 
 function useScrollSpy(sections: Section[]) {

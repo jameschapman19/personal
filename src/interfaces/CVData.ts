@@ -8,10 +8,17 @@ export interface PersonalInfo {
     linkedin: string;
 }
 
+export interface SkillDetail {
+    name: string;
+    logo?: string; // Logo is now optional
+}
+
 export interface Skill {
     category: string;
-    details: string[];
+    details: SkillDetail[]; // Array of SkillDetail objects
 }
+
+
 
 export interface Education {
     period: string;

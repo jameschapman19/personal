@@ -1,31 +1,70 @@
-import React from 'react';
-import { Project } from '@/interfaces/project';
+import React, { useEffect, useState } from 'react';
 import { Grid, Card, CardContent, Typography, Box, Container, Link, Button } from '@mui/material';
 import { motion } from 'framer-motion';
+import GitHubIcon from "@mui/icons-material/GitHub";
+import Image from 'next/image';
+// Define a structure for your project's data that includes the GitHub API data you want to use
+interface Project {
+    name: string;
+    description: string;
+    technologies: string[];
+    githubLink: string;
+    stars: number;
+    languages: string[];
+    logo: string;
+    demoLink?: string;
+}
 
-// Sample data, replace with real project data or fetch from an API
-const projects: Project[] = [
-    {
-        name: "Project Name 1",
-        description: "Brief description of the project.",
-        technologies: ["React", "Node.js"],
-        githubLink: "https://github.com/yourusername/project1",
-        demoLink: "http://projectdemo1.com"
-    },
-    // ... more projects
-];
 
 const Projects = () => {
+    const [projects, setProjects] = useState<Project[]>([]);
+
+    useEffect(() => {
+        // GitHub API URLs for the repositories
+
+        const fetchProjects = async () => {
+            const repoInfos = [
+                { owner: "jameschapman19", repo: "cca_zoo", logo: "/logos/cca-zoo.svg" },
+                { owner: "florencejt", repo: "fusilli", logo: "/logos/fusilli.png" }
+            ];
+
+            const projectsData: Project[] = await Promise.all(repoInfos.map(async ({owner, repo, logo}) => {
+                const repoResponse = await fetch(`https://api.github.com/repos/${owner}/${repo}`);
+                const repoData = await repoResponse.json();
+
+                const languagesResponse = await fetch(repoData.languages_url);
+                const languagesData = await languagesResponse.json();
+                const languages = Object.keys(languagesData); // Convert language JSON object to array of language names
+
+                return {
+                    name: repoData.name,
+                    description: repoData.description,
+                    technologies: languages, // Assuming languages are a proxy for technologies
+                    githubLink: repoData.html_url,
+                    stars: repoData.stargazers_count,
+                    languages: languages,
+                    logo: logo, // Path to the logo image
+                    demoLink: '' // Handle demo links separately if available
+                };
+            }));
+
+            setProjects(projectsData);
+        };
+
+
+        fetchProjects();
+    }, []);
+
     return (
         <Box sx={{
             textAlign: 'center',
-            pt: 8, // Increase top padding
-            pb: 8, // Increase bottom padding
-            minHeight: '100vh', // Set minimum height to 100% of the viewport height
-            backgroundColor: 'white', // White background color
+            pt: 8,
+            pb: 8,
+            minHeight: '100vh',
+            backgroundColor: 'white',
             display: 'flex',
             flexDirection: 'column',
-            justifyContent: 'center', // Vertically center the content
+            justifyContent: 'center',
         }}>
             <Container>
                 <Typography variant="h2" component="h2" gutterBottom>
@@ -45,17 +84,34 @@ const Projects = () => {
                             >
                                 <Card>
                                     <CardContent>
-                                        <Typography variant="h6">{project.name}</Typography>
-                                        <Typography variant="body2">{project.description}</Typography>
-                                        <Typography variant="body2">Technologies: {project.technologies.join(', ')}</Typography>
-                                        <Link href={project.githubLink} target="_blank">
-                                            <Button variant="outlined" color="primary">GitHub</Button>
-                                        </Link>
-                                        {project.demoLink && (
-                                            <Link href={project.demoLink} target="_blank">
-                                                <Button variant="outlined" color="secondary">Demo</Button>
+                                        <div style={{ marginBottom: '10px' }}>
+                                            <Image
+                                                src={project.logo}
+                                                alt={`${project.name} logo`}
+                                                width={100} // Specify width
+                                                height={100} // Specify height
+                                                objectFit="contain" // Ensure the image fits within the dimensions without distortion
+                                                layout="fixed" // This ensures the image uses the specified width and height
+                                            />
+                                        </div>
+                                        <Typography variant="h6" gutterBottom>{project.name}</Typography>
+                                        <Typography variant="body2" paragraph>{project.description}</Typography>
+                                        <Typography variant="body2" paragraph>⭐ {project.stars} Stars</Typography>
+                                        <Typography variant="body2" paragraph>Languages: {project.languages.join(', ')}</Typography>
+                                        <Box>
+                                            <Link href={project.githubLink} target="_blank" style={{ textDecoration: 'none', marginRight: '10px' }}>
+                                                <Button variant="contained" color="primary" startIcon={<GitHubIcon />}>
+                                                    View on GitHub
+                                                </Button>
                                             </Link>
-                                        )}
+                                            {project.demoLink && (
+                                                <Link href={project.demoLink} target="_blank" style={{ textDecoration: 'none' }}>
+                                                    <Button variant="contained" color="secondary">
+                                                        Live Demo
+                                                    </Button>
+                                                </Link>
+                                            )}
+                                        </Box>
                                     </CardContent>
                                 </Card>
                             </motion.div>

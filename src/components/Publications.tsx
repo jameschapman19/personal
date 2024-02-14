@@ -1,6 +1,6 @@
 // components/PublicationsSection.tsx
 "use client";
-import { Box, Typography, Card, CardContent, Container, CardActions, Button, Grid, useTheme } from '@mui/material';
+import { Box, Typography, Card, CardMedia, CardContent, Container, CardActions, Button, Grid, useTheme } from '@mui/material';
 import { motion } from 'framer-motion';
 import publications from '@/content/publications.json'; // Path to your JSON file
 
@@ -12,7 +12,30 @@ interface Publication {
     code_link?: string;
     pdf_link?: string;
     teaser: string;
+    tag?: string;
 }
+
+const logos = [
+    { tag: 'ICLR', path: 'logos/ICLR-logo.svg' },
+    { tag: 'NeurIPS', path: 'logos/NeurIPS-logo.svg' },
+    { tag: 'MICCAI', path: 'logos/MICCAI-logo.jpg' },
+    { tag: 'Arxiv', path: 'logos/arxiv-logo.png' },
+    { tag: 'BP', path: 'logos/BP.jpg' },
+];
+
+// @ts-ignore
+const PublicationLogo = ({ logo }) => {
+    if (!logo) return null; // Handle missing logo gracefully
+    return (
+        <CardMedia
+            component="img"
+            height="140"
+            image={logo.path}
+            alt={`${logo.tag} logo`}
+            sx={{ objectFit: 'contain', p: 2 }}
+        />
+    );
+};
 
 const PublicationsSection = () => {
     const theme = useTheme();
@@ -59,6 +82,9 @@ const PublicationsSection = () => {
                                     },
                                     minHeight: '300px'  // Minimum height for each card
                                 }}>
+                                    {publication.tag && (
+                                        <PublicationLogo logo={logos.find(logo => logo.tag === publication.tag)} />
+                                    )}
                                     <CardContent sx={{ flexGrow: 1 }}>
                                         <Typography gutterBottom variant="h5" component="h2">
                                             {publication.title}

@@ -7,7 +7,10 @@ const MotionButton = motion(Button); // Wrap Button with motion for animations
 
 const HeroSection = () => {
     return (
-        <Box sx={{ padding: '4rem 1rem' }}>
+        <Box sx={{
+            display: "flex",
+            minHeight: "100vh", // Set a minimum height for the section
+            padding: '4rem 1rem' }}>
             <Container>
                 <Grid container spacing={2} alignItems="center" justifyContent={{ xs: 'center', md: 'initial' }}>
                     <Grid item xs={12} md={6} sx={{ textAlign: { xs: 'center', md: 'left' } }}>

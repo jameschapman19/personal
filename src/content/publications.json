@@ -8,7 +8,8 @@
     "code_link": "https://github.com/jameschapman19/SSL-EY",
     "pdf_link": "https://sslneurips23.github.io/paper_pdfs/paper_65.pdf",
     "keywords": "workshop",
-    "teaser": "Pioneering self-supervised learning techniques for groundbreaking advancements in computer vision."
+    "teaser": "Pioneering self-supervised learning techniques for groundbreaking advancements in computer vision.",
+    "tag": "NeurIPS"
   },
   {
     "title": "Efficient Algorithms for the CCA Family: Unconstrained Objectives with Unbiased Gradients",
@@ -17,33 +18,8 @@
     "url":"https://arxiv.org/abs/2310.01012",
     "code_link": "https://github.com/jameschapman19/cca_zoo",
     "year": "2023",
-    "teaser": "Revolutionizing machine learning with scalable algorithms for high-dimensional biomedical data."
-  },
-  {
-    "title": "Fusilli: A Python package housing a collection of deep-learning multi-modal data fusion method pipelines!",
-    "authors": "Florence J Townend, James Chapman, and James H Cole",
-    "month": "November",
-    "year": "2023",
-    "publisher": "Zenodo",
-    "version": "v1.0.0",
-    "doi": "10.5281/zenodo.10228564",
-    "url": "https://doi.org/10.5281/zenodo.10228564",
-    "code_link": "https://github.com/florencejt/fusilli",
-    "keywords": "software",
-    "teaser": "Introducing Fusilli, an innovative Python package for multi-modal data fusion in deep learning."
-  },
-  {
-    "title": "CCA-Zoo: A collection of Regularized, Deep Learning based, Kernel, and Probabilistic CCA methods in a scikit-learn style framework",
-    "authors": "James Chapman, Hao-Ting Wang",
-    "journal": "Journal of Open Source Software",
-    "volume": "6",
-    "number": "68",
-    "pages": "3823",
-    "year": "2021",
-    "url": "https://joss.theoj.org/papers/10.21105/joss.03823",
-    "pdf_link": "https://www.theoj.org/joss-papers/joss.03823/10.21105.joss.03823.pdf",
-    "code_link": "https://github.com/jameschapman19/cca_zoo",
-    "teaser": "CCA-Zoo: A comprehensive toolkit bridging the gap in multimodal machine learning."
+    "teaser": "Revolutionizing machine learning with scalable algorithms for high-dimensional biomedical data.",
+    "tag": "ICLR"
   },
   {
     "title": "Canonical correlation analysis and partial least squares for identifying brain-behaviour associations: a tutorial and a comparative study",
@@ -54,7 +30,8 @@
     "url": "https://www.sciencedirect.com/science/article/pii/S2451902222001859?via%3Dihub",
     "pdf_link": "https://discovery.ucl.ac.uk/id/eprint/10153939/1/Canonical%20Correlation%20Analysis.pdf",
     "code_link": "https://github.com/anaston/cca_pls_toolkit",
-    "teaser": "Exploring brain-behavior links through advanced multivariate analysis techniques."
+    "teaser": "Exploring brain-behavior links through advanced multivariate analysis techniques.",
+    "tag": "BP"
   },
   {
     "title": "A Generalized EigenGame with Extensions to Multiview Representation Learning",
@@ -63,7 +40,8 @@
     "year": "2022",
     "url": "https://arxiv.org/abs/2211.11323",
     "pdf_link": "https://arxiv.org/pdf/2211.11323.pdf",
-    "teaser": "Harnessing game theory for solving complex eigenvalue problems in multiview learning."
+    "teaser": "Harnessing game theory for solving complex eigenvalue problems in multiview learning.",
+    "tag": "Arxiv"
   },
   {
     "title": "Conditional VAEs for Confound Removal and Normative Modelling of Neurodegenerative Diseases",
@@ -73,7 +51,8 @@
     "year": "2022",
     "organization": "Springer Nature Switzerland Cham",
     "url": "https://link.springer.com/chapter/10.1007/978-3-031-16431-6_41",
-    "teaser": "Advancing neurodegenerative disease research with cutting-edge conditional VAEs."
+    "teaser": "Advancing neurodegenerative disease research with cutting-edge conditional VAEs.",
+    "tag": "MICCAI"
   },
   {
     "title": "Multi-modal Variational Autoencoders for normative modelling across multiple imaging modalities",
@@ -83,6 +62,7 @@
     "year": "2023",
     "url": "https://arxiv.org/abs/2303.12706",
     "pdf_link": "https://arxiv.org/pdf/2303.12706.pdf",
-    "teaser": "Pushing the frontiers of normative modelling with multi-modal variational autoencoders."
+    "teaser": "Pushing the frontiers of normative modelling with multi-modal variational autoencoders.",
+    "tag": "Arxiv"
   }
 ]

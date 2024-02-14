@@ -51,13 +51,7 @@ const AboutMeSection = () => {
                             </Typography>
                             <Typography variant="body1" color={theme.palette.getContrastText(theme.palette.primary.main)}>
                                 {/* eslint-disable-next-line react/no-unescaped-entities */}
-                                Hi there! I'm James Chapman, an AI enthusiast with a passion for innovation and problem-solving. With a background in Engineering and Economics, I blend creativity with analytical thinking to tackle complex challenges in the field of artificial intelligence.
-                                {/* eslint-disable-next-line react/no-unescaped-entities */}
-                                I specialize in areas like Deep Learning, Natural Language Processing, and Computer Vision, leveraging cutting-edge technologies to drive impactful solutions. Whether it's developing efficient algorithms or pioneering self-supervised learning techniques, I'm dedicated to pushing the boundaries of AI.
-                                {/* eslint-disable-next-line react/no-unescaped-entities */}
-                                From academia to industry, I've collaborated on diverse projects, contributing to advancements in machine learning and beyond. I thrive in dynamic environments, where I can apply my expertise to drive innovation and make a positive impact.
-                                {/* eslint-disable-next-line react/no-unescaped-entities */}
-                                Let's connect and explore how we can leverage AI to transform ideas into reality.
+                                I combine my engineering and economics background to work on machine learning, focusing on deep learning, natural language processing, and computer vision. I enjoy building algorithms and exploring new AI methods. I've worked on various projects, both in academic and industry settings, and I'm always eager to tackle challenges in fast-paced environments. If you're interested in pushing the boundaries of AI together, let's chat.
                             </Typography>
                         </Grid>
                     </Grid>

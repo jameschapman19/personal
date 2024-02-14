@@ -1,0 +1,28 @@
+[
+  {
+    "title": "Fusilli: A Python package housing a collection of deep-learning multi-modal data fusion method pipelines!",
+    "authors": "Florence J Townend, James Chapman, and James H Cole",
+    "month": "November",
+    "year": "2023",
+    "publisher": "Zenodo",
+    "version": "v1.0.0",
+    "doi": "10.5281/zenodo.10228564",
+    "url": "https://doi.org/10.5281/zenodo.10228564",
+    "code_link": "https://github.com/florencejt/fusilli",
+    "keywords": "software",
+    "teaser": "Introducing Fusilli, an innovative Python package for multi-modal data fusion in deep learning."
+  },
+  {
+    "title": "CCA-Zoo: A collection of Regularized, Deep Learning based, Kernel, and Probabilistic CCA methods in a scikit-learn style framework",
+    "authors": "James Chapman, Hao-Ting Wang",
+    "journal": "Journal of Open Source Software",
+    "volume": "6",
+    "number": "68",
+    "pages": "3823",
+    "year": "2021",
+    "url": "https://joss.theoj.org/papers/10.21105/joss.03823",
+    "pdf_link": "https://www.theoj.org/joss-papers/joss.03823/10.21105.joss.03823.pdf",
+    "code_link": "https://github.com/jameschapman19/cca_zoo",
+    "teaser": "CCA-Zoo: A comprehensive toolkit bridging the gap in multimodal machine learning."
+  }
+]
