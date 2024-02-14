@@ -38,11 +38,11 @@ const cvData: CVData = {
                 { name: "TensorFlow", logo: "/logos/tensorflow.svg" },
                 { name: "PyTorch", logo: "/logos/pytorch.svg" },
                 { name: "Lightning", logo: "/logos/lightning.svg" },
-                { name: "Scikit-Learn", logo: "/logos/scikit-learn.png" },
+                { name: "Scikit-Learn", logo: "/logos/scikit-learn.svg" },
                 { name: "Pandas", logo: "/logos/pandas.jpg" },
                 { name: "NumPy", logo: "/logos/numpy.svg" },
-                { name: "SciPy", logo: "/logos/scipy.jpg" },
-                { name: "Jax", logo: "/logos/jax.jpg" },
+                { name: "SciPy", logo: "/logos/scipy.svg" },
+                { name: "Jax", logo: "/logos/jax.svg" },
                 { name: "HuggingFace", logo: "/logos/huggingface.svg" }
             ]
         },

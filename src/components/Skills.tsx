@@ -78,7 +78,8 @@ const SkillsSection = () => {
                                                                     alt={`${skill.name} logo`}
                                                                     width={60} // Specify width
                                                                     height={60} // Specify height
-                                                                    objectFit="contain"
+                                                                    objectFit="contain" // Ensure the image fits within the dimensions without distortion
+                                                                    layout="fixed" // This ensures the image uses the specified width and height
                                                                 />
                                                             ) : (
                                                                 <div style={{ width: '60px', height: '60px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.25rem' }}>
