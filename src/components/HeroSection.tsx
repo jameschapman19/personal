@@ -65,10 +65,10 @@ const HeroSection = () => {
                         <Image
                             src="/professional.jpg"
                             alt="James Chapman"
-                            sizes="100vw"
+                            sizes="80vw"
                             style={{
                                 width: 'auto',
-                                height: '65%',
+                                height: '100%',
                                 borderRadius: '10px',
                             }}
                             width={125}
