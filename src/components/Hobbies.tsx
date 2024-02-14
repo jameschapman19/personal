@@ -2,20 +2,11 @@
 "use client";
 import React from "react";
 import { Box, Typography, Container, Grid, useTheme } from "@mui/material";
-import { motion } from "framer-motion";
-
+import MotionDiv from '@/components/MotionDiv';
 const HobbiesSection = () => {
     const theme = useTheme();
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: { delay: 0.5, duration: 1 },
-        },
-    };
 
     return (
-        <motion.div variants={containerVariants} initial="hidden" animate="visible">
             <Box
                 sx={{
                     display: "flex",
@@ -32,6 +23,7 @@ const HobbiesSection = () => {
                     opacity: 0.8, // Optional background color opacity
                 }}
             >
+                <MotionDiv direction="right">
                 <Container maxWidth="lg">
                     <Grid container spacing={2} alignItems="center">
                         <Grid item xs={12}>
@@ -55,8 +47,8 @@ const HobbiesSection = () => {
                         </Grid>
                     </Grid>
                 </Container>
+                </MotionDiv>
             </Box>
-        </motion.div>
     );
 };
 

@@ -5,22 +5,16 @@ import {
     AccordionDetails,
     AccordionSummary,
 } from '@mui/material';
-import { motion } from 'framer-motion';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Image from 'next/image';
 type ColorMap = {
     [key: string]: string;
 };
+import MotionDiv from '@/components/MotionDiv';
 
 const SkillsSection = () => {
     const theme = useTheme();
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: { delay: 0.5, duration: 1 }
-        }
-    };
+
     // Using Material-UI theme colors for categories
     const colorMap: ColorMap = {
         "Programming Languages": theme.palette.primary.main,
@@ -36,21 +30,16 @@ const SkillsSection = () => {
     });
 
     return (
-        <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-        >
             <Box sx={{
-                display: "flex",
                 minHeight: "100vh", // Set a minimum height for the section
-                textAlign: 'left',
+                textAlign: 'center',
                 pt: 8,
                 pb: 8,
             }}>
+                <MotionDiv direction="left">
             <Container>
                 <Grid container spacing={4} sx={{ justifyContent: 'space-between' }}>
-                    <Grid item xs={12} md={6}>
+                    <Grid item xs={12} md={6} sx={{ textAlign: { xs: 'center', md: 'left' } }}>
                         <Typography variant="h2" component="h2" gutterBottom>
                             <span style={{ fontSize: '0.8em' }}>My</span> <br /> <strong style={{ fontSize: '1.5em' }}>Skills</strong>
                         </Typography>
@@ -99,8 +88,8 @@ const SkillsSection = () => {
                     </Grid>
                 </Grid>
             </Container>
+            </MotionDiv>
             </Box>
-        </motion.div>
     );
 };
 

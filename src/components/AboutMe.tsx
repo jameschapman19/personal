@@ -2,31 +2,21 @@
 "use client"
 import React from 'react';
 import { Box, Typography, Container, Grid, useTheme } from '@mui/material';
-import { motion } from 'framer-motion';
 import Image from 'next/image';
+import MotionDiv from '@/components/MotionDiv';
 
 const AboutMeSection = () => {
     const theme = useTheme();
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: { delay: 0.5, duration: 1 }
-        }
-    };
 
     return (
-        <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-        >
             <Box sx={{
+                minHeight: "100vh", // Set a minimum height for the section
                 textAlign: 'center',
                 pt: 8,
                 pb: 8,
                 backgroundColor: theme.palette.primary.main, // Background color for the entire section
             }}>
+                <MotionDiv direction="left">
                 <Container>
                     <Grid container spacing={2} alignItems="center" justifyContent={{ xs: 'center', md: 'initial' }}>
                         <Grid item xs={12} md={6} sx={{ textAlign: { xs: 'center', md: 'left' } }}>
@@ -35,10 +25,9 @@ const AboutMeSection = () => {
                                 alt="James Chapman"
                                 sizes="100vw"
                                 style={{
-                                    width: '100%',
-                                    height: 'auto',
+                                    width: 'auto',
+                                    height: '65%',
                                     borderRadius: '10px',
-                                    maxWidth: '250px' // Ensure the image is not too large on big screens
                                 }}
                                 layout="responsive" // This ensures that the image resizes responsively
                                 width={125}
@@ -56,8 +45,8 @@ const AboutMeSection = () => {
                         </Grid>
                     </Grid>
                 </Container>
+                </MotionDiv>
             </Box>
-        </motion.div>
     );
 };
 

@@ -80,7 +80,7 @@ const PublicationsSection = () => {
                                     ':hover': {
                                         boxShadow: 6, // theme.shadows[6]
                                     },
-                                    minHeight: '300px'  // Minimum height for each card
+                                    minHeight: '500px'  // Minimum height for each card
                                 }}>
                                     {publication.tag && (
                                         <PublicationLogo logo={logos.find(logo => logo.tag === publication.tag)} />

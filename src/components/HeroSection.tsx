@@ -67,10 +67,9 @@ const HeroSection = () => {
                             alt="James Chapman"
                             sizes="100vw"
                             style={{
-                                width: '100%',
-                                height: 'auto',
+                                width: 'auto',
+                                height: '65%',
                                 borderRadius: '10px',
-                                maxWidth: '250px' // Ensure the image is not too large on big screens
                             }}
                             width={125}
                             height={75}
