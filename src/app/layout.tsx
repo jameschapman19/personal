@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-import theme from '@/components/ThemeRegistry/theme';
+import theme from '@/theme';
 import ResponsiveAppBar from '@/components/Header';
 import Footer from '@/components/Footer';
 import meta from "@/content/metadata.json";

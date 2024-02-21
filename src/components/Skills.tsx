@@ -1,3 +1,4 @@
+"use client"
 import { Typography, Container, Grid, Paper, useTheme } from '@mui/material';
 import cvData from '@/content/CVData';
 import {
@@ -10,7 +11,7 @@ import Image from 'next/image';
 type ColorMap = {
     [key: string]: string;
 };
-import MotionDiv from '@/components/MotionDiv';
+import AnimationTheme from "@/AnimationTheme";
 
 const SkillsSection = () => {
     const theme = useTheme();
@@ -36,15 +37,14 @@ const SkillsSection = () => {
             pt: 8,
             pb: 8,
         }}>
-                <MotionDiv direction="left">
+            <AnimationTheme variant="hiddenLeft">
                 <Grid container spacing={4} sx={{ justifyContent: 'space-between' }}>
                     <Grid item xs={12} md={6} sx={{ textAlign: { xs: 'center', md: 'left' } }}>
                         <Typography variant="h2" component="h2" gutterBottom>
                             <span style={{ fontSize: '0.8em' }}>My</span> <br /> <strong style={{ fontSize: '1.5em' }}>Skills</strong>
                         </Typography>
                         <Typography variant="body1">
-                            {/* Your tagline goes here */}
-                            {/* Example: "Discover a world of expertise and innovation" */}
+                            Versatile expertise spanning programming languages, software development, and machine learning tools, coupled with a commitment to continuous learning and innovation.
                         </Typography>
                     </Grid>
                     <Grid item xs={12} md={6}>
@@ -59,7 +59,15 @@ const SkillsSection = () => {
                                             <Grid container spacing={2}>
                                                 {category.details.map((skill, index) => (
                                                     <Grid item xs={6} md={4} key={index}>
-                                                        <Paper sx={{ padding: '1rem', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                                                        <Paper
+                                                            sx={{
+                                                                padding: '1rem',
+                                                                display: 'flex',
+                                                                alignItems: 'center',
+                                                                gap: '5px',
+                                                            }}
+                                                        >
+                                                            {/* Render the logo if available, otherwise render a placeholder */}
                                                             {skill.logo ? (
                                                                 <Image
                                                                     src={skill.logo}
@@ -67,14 +75,31 @@ const SkillsSection = () => {
                                                                     width={60} // Specify width
                                                                     height={60} // Specify height
                                                                     objectFit="contain" // Ensure the image fits within the dimensions without distortion
-                                                                    layout="fixed" // This ensures the image uses the specified width and height
                                                                 />
                                                             ) : (
-                                                                <div style={{ width: '60px', height: '60px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.25rem' }}>
-                                                                    {skill.name[0]}
-                                                                </div> // A placeholder div for skills without a logo
+                                                                <div
+                                                                    style={{
+                                                                        width: '60px',
+                                                                        height: '60px',
+                                                                        display: 'flex',
+                                                                        alignItems: 'center',
+                                                                        justifyContent: 'center',
+                                                                        fontSize: '1.25rem',
+                                                                    }}
+                                                                >
+                                                                    {skill.name[0]} {/* Display the first letter of the skill name as a placeholder */}
+                                                                </div>
                                                             )}
-                                                            <Typography variant="body2">{skill.name}</Typography>
+                                                            {/* Render the skill name and years of experience */}
+                                                            <Typography variant="body2">
+                                                                <strong>{skill.name}</strong>
+                                                                {skill.years && ( // Only display years of experience if available
+                                                                    <>
+                                                                        <br />
+                                                                        {skill.years} years {/* Display years of experience on a new line */}
+                                                                    </>
+                                                                )}
+                                                            </Typography>
                                                         </Paper>
                                                     </Grid>
                                                     ))}
@@ -86,7 +111,7 @@ const SkillsSection = () => {
                         </Grid>
                     </Grid>
                 </Grid>
-            </MotionDiv>
+            </AnimationTheme>
         </Container>
     );
 };

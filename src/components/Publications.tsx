@@ -1,8 +1,9 @@
 // components/PublicationsSection.tsx
 "use client";
-import { Box, Typography, Card, CardMedia, CardContent, Container, CardActions, Button, Grid, useTheme } from '@mui/material';
+import { Typography, Card, CardMedia, CardContent, Container, CardActions, Button, Grid, useTheme } from '@mui/material';
 import { motion } from 'framer-motion';
 import publications from '@/content/publications.json'; // Path to your JSON file
+import AnimationTheme from "@/AnimationTheme"; // Import the AnimationTheme component
 
 interface Publication {
     title: string;
@@ -29,7 +30,7 @@ const PublicationLogo = ({ logo }) => {
     return (
         <CardMedia
             component="img"
-            height="140"
+            height="80"
             image={logo.path}
             alt={`${logo.tag} logo`}
             sx={{ objectFit: 'contain', p: 2 }}
@@ -46,16 +47,17 @@ const PublicationsSection = () => {
     };
 
     return (
-        <Box sx={{
-            textAlign: 'center',
-            pt: 8,
-            pb: 8,
-            backgroundColor: theme.palette.secondary.main, // Background color for the entire section
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-        }}>
-            <Container>
+        <Container
+            maxWidth={false}
+            sx={{
+                minHeight: "100vh", // Set a minimum height for the section
+                textAlign: 'center',
+                pt: 8,
+                pb: 8,
+                backgroundColor: theme.palette.secondary.main, // Background color for the entire section
+            }}
+        >
+                <AnimationTheme variant="hiddenUp">
                 <Typography variant="h2" component="h2" gutterBottom color={theme.palette.getContrastText(theme.palette.secondary.main)}>
                     <span style={{ fontSize: '0.8em' }}>Learn About My</span> <br /> <strong style={{ fontSize: '1.5em' }}>Publications</strong>
                 </Typography>
@@ -80,7 +82,7 @@ const PublicationsSection = () => {
                                     ':hover': {
                                         boxShadow: 6, // theme.shadows[6]
                                     },
-                                    minHeight: '500px'  // Minimum height for each card
+                                    minHeight: '350px'  // Minimum height for each card
                                 }}>
                                     {publication.tag && (
                                         <PublicationLogo logo={logos.find(logo => logo.tag === publication.tag)} />
@@ -113,8 +115,8 @@ const PublicationsSection = () => {
                         </Grid>
                     ))}
                 </Grid>
+                </AnimationTheme>
             </Container>
-        </Box>
     );
 };
 

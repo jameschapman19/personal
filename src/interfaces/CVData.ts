@@ -11,6 +11,7 @@ export interface PersonalInfo {
 export interface SkillDetail {
     name: string;
     logo?: string; // Logo is now optional
+    years?: number; // Years is now optional
 }
 
 export interface Skill {

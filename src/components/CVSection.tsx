@@ -52,16 +52,18 @@ const CVSection: React.FC<CVSectionProps> = ({ cvData }) => {
                 {/* Skills */}
                 <Grid item xs={12} md={6}>
                     <motion.div variants={cardVariants} initial="initial" animate="animate" whileHover="whileHover">
-                    <Card sx={getCardStyles(0)}>
-                        <CardContent>
-                            <Typography variant="h6">Skills</Typography>
-                            {cvData.skills.map((skill, idx) => (
-                                <Paper key={idx} sx={paperStyle}>
-                                    <Typography><strong>{skill.category}:</strong> {skill.details.join(', ')}</Typography>
-                                </Paper>
-                            ))}
-                        </CardContent>
-                    </Card>
+                        <Card sx={getCardStyles(0)}>
+                            <CardContent>
+                                <Typography variant="h6">Skills</Typography>
+                                {cvData.skills.map((skillCategory, idx) => (
+                                    <Paper key={idx} sx={paperStyle}>
+                                        <Typography>
+                                            <strong>{skillCategory.category}:</strong> {skillCategory.details.map(detail => detail.name).join(', ')}
+                                        </Typography>
+                                    </Paper>
+                                ))}
+                            </CardContent>
+                        </Card>
                     </motion.div>
                 </Grid>
 

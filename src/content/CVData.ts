@@ -14,13 +14,13 @@ const cvData: CVData = {
         {
             category: "Programming Languages",
             details: [
-                { name: "Python (6 years)", logo: "/logos/python.svg" },
-                { name: "R (2 years)", logo: "/logos/R.svg" },
-                { name: "MATLAB (2 years)", logo: "/logos/matlab.svg" },
-                { name: "Bash (4 years)", logo: "/logos/bash.svg" },
-                { name: "SQL (2 years)", logo: "/logos/sql.svg" },
-                { name: "Javascript (1 year)", logo: "/logos/javascript.svg" },
-                { name: "Typescript (1 year)", logo: "/logos/typescript.svg" }
+                { name: "Python", years: 6, logo: "/logos/python.svg" },
+                { name: "R", years: 2, logo: "/logos/R.svg" },
+                { name: "MATLAB", years: 2, logo: "/logos/matlab.svg" },
+                { name: "Bash", years: 4, logo: "/logos/bash.svg" },
+                { name: "SQL", years: 2, logo: "/logos/sql.svg" },
+                { name: "Javascript", years: 1, logo: "/logos/javascript.svg" },
+                { name: "Typescript", years: 1, logo: "/logos/typescript.svg" }
             ]
         },
         {
@@ -29,7 +29,7 @@ const cvData: CVData = {
                 { name: "Git (GitHub)", logo: "/logos/github.svg" },
                 { name: "CI/CD (CircleCI)", logo: "/logos/circleci.svg" },
                 { name: "Unit Testing (Pytest)", logo: "/logos/pytest.svg" },
-                { name: "Documentation (Sphinx)", logo: "/logos/sphinxdoc.webp" }
+                { name: "Documentation (Sphinx)", logo: "/logos/sphinx.svg" }
             ]
         },
         {
@@ -55,7 +55,7 @@ const cvData: CVData = {
                 { name: "Self-Supervised Learning" },
                 { name: "Reinforcement Learning" }
             ]
-        },
+        }
     ],
     education: [
         {

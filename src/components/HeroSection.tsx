@@ -1,17 +1,23 @@
-import { Box, Typography, Button, Grid, Container } from '@mui/material';
+"use client"
+import { Typography, Button, Grid, Container } from '@mui/material';
 import Image from 'next/image';
 import { GitHub, LinkedIn } from '@mui/icons-material'; // Import Material-UI icons for GitHub and LinkedIn
 import { motion } from 'framer-motion'; // Import motion from framer-motion
+import AnimationTheme from "@/AnimationTheme"; // Import the AnimationTheme component
 
 const MotionButton = motion(Button); // Wrap Button with motion for animations
 
 const HeroSection = () => {
     return (
-        <Box sx={{
-            display: "flex",
-            minHeight: "100vh", // Set a minimum height for the section
-            padding: '4rem 1rem' }}>
-            <Container>
+        <Container
+            sx={{
+                display: "flex",
+                minHeight: "100vh", // Set a minimum height for the section
+                padding: '4rem 1rem',
+                flexDirection: 'column', // Ensure content stacks vertically
+            }}
+        >
+                <AnimationTheme variant="hiddenLeft">
                 <Grid container spacing={2} alignItems="center" justifyContent={{ xs: 'center', md: 'initial' }}>
                     <Grid item xs={12} md={6} sx={{ textAlign: { xs: 'center', md: 'left' } }}>
                         <Typography variant="h2" component="h1" gutterBottom>
@@ -76,8 +82,8 @@ const HeroSection = () => {
                         />
                     </Grid>
                 </Grid>
+            </AnimationTheme>
             </Container>
-        </Box>
     );
 };
 
