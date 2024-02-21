@@ -1,4 +1,4 @@
-import { Box, Typography, Container, Grid, Paper, useTheme } from '@mui/material';
+import { Typography, Container, Grid, Paper, useTheme } from '@mui/material';
 import cvData from '@/content/CVData';
 import {
     Accordion,
@@ -30,14 +30,13 @@ const SkillsSection = () => {
     });
 
     return (
-            <Box sx={{
-                minHeight: "100vh", // Set a minimum height for the section
-                textAlign: 'center',
-                pt: 8,
-                pb: 8,
-            }}>
+        <Container sx={{
+            minHeight: "100vh", // Set a minimum height for the section
+            textAlign: 'center',
+            pt: 8,
+            pb: 8,
+        }}>
                 <MotionDiv direction="left">
-            <Container>
                 <Grid container spacing={4} sx={{ justifyContent: 'space-between' }}>
                     <Grid item xs={12} md={6} sx={{ textAlign: { xs: 'center', md: 'left' } }}>
                         <Typography variant="h2" component="h2" gutterBottom>
@@ -87,9 +86,8 @@ const SkillsSection = () => {
                         </Grid>
                     </Grid>
                 </Grid>
-            </Container>
             </MotionDiv>
-            </Box>
+        </Container>
     );
 };
 
