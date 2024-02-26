@@ -42,8 +42,10 @@ const AboutMeSection = () => {
                                 <span style={{ fontSize: '0.8em' }}>About</span> <br /> <strong style={{ fontSize: '1.5em' }}>Me</strong> <br /> <span style={{ fontSize: '0.8em' }}>AI Enthusiast & Innovator</span>
                             </Typography>
                             <Typography variant="body1" color={theme.palette.getContrastText(theme.palette.primary.main)}>
+                                PhD researcher in Machine Learning at UCL with a focus on scalable algorithms and interpretability. Self-taught
+                                full-stack developer with extensive experience in teaching, and industry applications.
                                 {/* eslint-disable-next-line react/no-unescaped-entities */}
-                                I combine my engineering and economics background to work on machine learning, focusing on deep learning, natural language processing, and computer vision. I enjoy building algorithms and exploring new AI methods. I've worked on various projects, both in academic and industry settings, and I'm always eager to tackle challenges in fast-paced environments. If you're interested in pushing the boundaries of AI together, let's chat.
+                                If you're interested in pushing the boundaries of AI together, let's chat.
                             </Typography>
                         </Grid>
                     </Grid>
